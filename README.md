@@ -7,7 +7,7 @@ Create a web app that tells the user what types of food trucks might be found ne
 
 Solution
 -----------
-This git repository contains a web app prototype to address the Food Truck finder problem. When the customer visits the [web app](https://sleepy-sea-8576.herokuapp.com/home), they are asked to enter an address and select the city in which they would like to find a food truck. Currently only one city (San Francisco) is supported. Once the customer enter the address and click the “Find Food Truck” button the web app will make a couple of REST calls in order to find results for user query.  When the web app is not able fetch any results for the user query or if some REST call fails, the web app will display an user-friendly error message. 
+This git repository contains a web app prototype to address the Food Truck finder problem. When the customer visits the [web app](https://sleepy-sea-8576.herokuapp.com/home), they are asked to enter an address and select the city in which they would like to find a food truck. Currently only one city (San Francisco) is supported. Once the customer enter the address and click the “Find Food Truck” button, the web app will make a couple of REST calls in order to find results for user query.  When the web app is not able fetch any results for the user query or if some REST call fails, the web app will display an user-friendly error message. 
 
 The prototype has been built using Java and [Spring MVC]( http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) framework. The front end comprises of two jsp pages – the first one contains a form for user query and the second one displays the result using JQuery [accordion]( http://jqueryui.com/accordion/) widget. The front end is also integrated with Google Maps to render map on the UI and Geocoding service to get geographical coordinates for the user’s address input.
 
@@ -21,7 +21,7 @@ Design
 
 Frontend
 ------------
-The frontend is fairly straightforward containing two JSP pages. First page contains the form to take user’s address input. When the user submits the address, this page talks to the Google’s Geocoding service via the Maps Javascript library to get the latitude and longitude corresponding to the address in the user query. After getting the geographical coordinates, the web app makes a REST call to the Backend with these parameters. Later, on receiving the response from the Backend, the web app renders them using jQuery Accordion widget and plots the points on Google Map. 
+The frontend is fairly straightforward containing two JSP pages. First page contains the form to take user’s address input. When the user submits the address, this page talks to the Google’s Geocoding service via the Maps Javascript library to get the latitude and longitude corresponding to the address in the user query. After getting the geographical coordinates, the web app makes a REST call to the Backend with these parameters. Later, on receiving the response from the Backend, the web app will render the results using jQuery Accordion widget and plots the food truck's location on Google Map. 
 
 Design decision was made to integrate Google’s Geocoding service in the frontend because of the query limit imposed by this service. If this service were to be called from the backend, the query limit would have been shared amongst all the Food Truck finder users limiting the number of users this web app would have served.
 
@@ -42,6 +42,6 @@ Running the code
 ---------------------
 1. First git checkout the code in Eclipse
 2. Make sure you have the [maven plugin](http://eclipse.org/m2e/) installed in your Eclipse 
-3. Add an Run Configuration for maven build with Goal as “tomcat:run” and start the server. You should now be able to see the application on “localhost:8080/FoodTruck/home”
+3. Add a Run Configuration for maven build with Goal as “tomcat:run” and start the server. You should now be able to see the application on “localhost:8080/FoodTruck/home”
 4. Alternatively, you can execute the application form the command line using the instructions [here]( https://devcenter.heroku.com/articles/java-webapp-runner#run-your-application). The application can be reached at “localhost:8080/home”
 
